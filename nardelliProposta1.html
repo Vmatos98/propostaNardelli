@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nardelli Usinagem - Precisão e Qualidade</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonte Inter (Google Fonts) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- FontAwesome para ícones de marcas (WhatsApp, Youtube, Instagram) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #2563EB; /* Azul Royal */
+            margin-top: 8px;
+        }
+        /* Animação suave para os ícones sociais */
+        .social-icon-hero {
+            transition: all 0.3s ease;
+        }
+        .social-icon-hero:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20BA5A;
+        }
+        .whatsapp-pulse {
+            animation: pulse-animation 2s infinite;
+        }
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0px rgba(37, 211, 102, 0.5); }
+            100% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header / Navbar -->
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-md transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="bg-blue-700 text-white p-2 rounded-sm transform group-hover:rotate-3 transition-transform">
+                    <i data-lucide="settings" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-slate-900 tracking-tight leading-none">NARDELLI</h1>
+                    <span class="text-xs text-blue-700 font-semibold tracking-widest uppercase">Usinagem</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
+                <a href="#home" class="hover:text-blue-700 transition-colors">Home</a>
+                <a href="#empresa" class="hover:text-blue-700 transition-colors">Empresa</a>
+                <a href="#clientes" class="hover:text-blue-700 transition-colors">Clientes</a>
+                <a href="#servicos" class="hover:text-blue-700 transition-colors">Serviços</a>
+                <a href="#contato" class="px-5 py-2.5 bg-blue-700 text-white rounded hover:bg-blue-800 transition-colors">Orçamento</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-slate-800" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-t md:hidden flex-col shadow-lg">
+            <a href="#home" class="block px-6 py-4 border-b hover:bg-slate-50">Home</a>
+            <a href="#empresa" class="block px-6 py-4 border-b hover:bg-slate-50">Empresa</a>
+            <a href="#clientes" class="block px-6 py-4 border-b hover:bg-slate-50">Clientes</a>
+            <a href="#servicos" class="block px-6 py-4 border-b hover:bg-slate-50">Serviços</a>
+            <a href="#contato" class="block px-6 py-4 bg-blue-50 text-blue-700 font-bold">Fale Conosco</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center pt-16 relative">
+        <div class="container mx-auto px-6 text-center text-white z-10">
+            <span class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-blue-300 uppercase bg-blue-900/50 rounded-full border border-blue-700/50 backdrop-blur-sm">
+                Desde 1991
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Produzindo com <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-200">Qualidade e Precisão</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+                Soluções completas em usinagem de precisão, torno CNC e manutenção industrial para grandes empresas.
+            </p>
+            
+            <!-- Botões de Ação -->
+            <div class="flex flex-col md:flex-row gap-4 justify-center mb-12">
+                <a href="#contato" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded font-semibold transition-all shadow-lg shadow-blue-900/50 flex items-center justify-center gap-2">
+                    Solicitar Cotação <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#servicos" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded font-semibold transition-all backdrop-blur-sm">
+                    Nossos Serviços
+                </a>
+            </div>
+
+            <!-- Redes Sociais em Destaque -->
+            <div class="flex flex-col items-center animate-fade-in-up">
+                <p class="text-sm text-slate-400 mb-4 uppercase tracking-widest font-semibold">Acompanhe nosso trabalho</p>
+                <div class="flex gap-6 items-center bg-white/5 backdrop-blur-md px-8 py-3 rounded-full border border-white/10">
+                    <a href="#" class="social-icon-hero text-white hover:text-green-400" title="WhatsApp">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </a>
+                    <div class="w-px h-4 bg-white/20"></div>
+                    <a href="#" class="social-icon-hero text-white hover:text-pink-500" title="Instagram">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <div class="w-px h-4 bg-white/20"></div>
+                    <a href="#" class="social-icon-hero text-white hover:text-red-500" title="YouTube">
+                        <i class="fab fa-youtube text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Bar -->
+    <div class="bg-blue-900 text-white py-12 relative z-10 -mt-8 mx-4 md:mx-12 rounded-lg shadow-xl grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-blue-800">
+        <div class="p-4">
+            <i data-lucide="map-pin" class="w-8 h-8 mx-auto mb-3 text-blue-400"></i>
+            <h3 class="font-bold text-lg">Localização Estratégica</h3>
+            <p class="text-sm text-blue-200 mt-1">Fácil acesso e logística facilitada no Dezoito do Forte.</p>
+        </div>
+        <div class="p-4">
+            <i data-lucide="cpu" class="w-8 h-8 mx-auto mb-3 text-blue-400"></i>
+            <h3 class="font-bold text-lg">Tecnologia CNC</h3>
+            <p class="text-sm text-blue-200 mt-1">Equipamentos modernos para máxima precisão.</p>
+        </div>
+        <div class="p-4">
+            <i data-lucide="shield-check" class="w-8 h-8 mx-auto mb-3 text-blue-400"></i>
+            <h3 class="font-bold text-lg">Confiabilidade</h3>
+            <p class="text-sm text-blue-200 mt-1">Parceira de grandes empresas como Petrobrás.</p>
+        </div>
+    </div>
+
+    <!-- Sobre a Empresa (Mantido BG Branco) -->
+    <section id="empresa" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-tl-3xl -z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Oficina de Usinagem" class="rounded-lg shadow-2xl w-full object-cover h-[400px]">
+                    <div class="absolute -bottom-6 -right-6 bg-blue-700 text-white p-6 rounded-lg shadow-lg hidden md:block">
+                        <p class="text-3xl font-bold">30+</p>
+                        <p class="text-sm uppercase tracking-wide">Anos de Experiência</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-slate-900 section-title">Sobre a Nardelli</h2>
+                    <p class="text-slate-600 leading-relaxed mb-6 text-lg">
+                        A Nardelli Usinagem conta com uma vasta gama de serviços oferecidos graças ao constante investimento em equipamentos de alta tecnologia. Nosso objetivo é proporcionar sempre um produto de alta qualidade e confiabilidade.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed mb-8">
+                        Não é à toa que grandes empresas firmaram parceria sólida conosco. Unimos tradição, processos de produção seguros e preços competitivos para atender as demandas mais exigentes do mercado sergipano e nacional.
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <i data-lucide="check-circle-2" class="text-green-600 w-5 h-5"></i> Preços Competitivos
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <i data-lucide="check-circle-2" class="text-green-600 w-5 h-5"></i> Qualidade Garantida
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <i data-lucide="check-circle-2" class="text-green-600 w-5 h-5"></i> Entrega Pontual
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-700 font-medium">
+                            <i data-lucide="check-circle-2" class="text-green-600 w-5 h-5"></i> Equipe Especializada
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clientes (MOVIDO PARA CÁ - Alterado BG para Cinza Claro) -->
+    <section id="clientes" class="py-24 bg-slate-50 relative overflow-hidden">
+        <!-- Elemento decorativo de fundo -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-white -skew-x-12 opacity-50 z-0"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 inline-block section-title">Nossos Clientes</h2>
+                    <p class="text-slate-600 mt-4 text-lg">
+                        A confiança de grandes marcas se conquista com precisão, prazo e responsabilidade. Orgulhosamente atendemos alguns dos maiores nomes da indústria nacional.
+                    </p>
+                </div>
+                <a href="#contato" class="hidden md:inline-flex items-center gap-2 text-blue-700 font-semibold hover:text-blue-900 transition-colors">
+                    Seja nosso cliente <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+            
+            <!-- Grid de Clientes -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Cliente 1 -->
+                <div class="group bg-white hover:bg-slate-50 border border-slate-200 hover:border-blue-200 p-10 rounded-xl flex items-center justify-center shadow-sm hover:shadow-xl transition-all duration-300 h-48">
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="text-3xl font-extrabold text-slate-400 group-hover:text-[#008542] transition-colors flex items-center gap-2 tracking-tighter">
+                            <span class="text-4xl">BR</span> PETROBRAS
+                        </div>
+                        <div class="h-1 w-12 bg-slate-200 group-hover:bg-[#008542] transition-all rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Cliente 2 -->
+                <div class="group bg-white hover:bg-slate-50 border border-slate-200 hover:border-blue-200 p-10 rounded-xl flex items-center justify-center shadow-sm hover:shadow-xl transition-all duration-300 h-48">
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="text-3xl font-extrabold text-slate-400 group-hover:text-blue-800 transition-colors uppercase tracking-wide text-center leading-none">
+                            Varco<br><span class="text-xl">National</span>
+                        </div>
+                        <div class="h-1 w-12 bg-slate-200 group-hover:bg-blue-800 transition-all rounded-full"></div>
+                    </div>
+                </div>
+
+                <!-- Cliente 3 -->
+                <div class="group bg-white hover:bg-slate-50 border border-slate-200 hover:border-blue-200 p-10 rounded-xl flex items-center justify-center shadow-sm hover:shadow-xl transition-all duration-300 h-48">
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="text-2xl font-extrabold text-slate-400 group-hover:text-red-700 transition-colors uppercase tracking-widest text-center">
+                            Constâncio<br>Vieira
+                        </div>
+                        <div class="h-1 w-12 bg-slate-200 group-hover:bg-red-700 transition-all rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Faixa de CTA mobile -->
+            <div class="mt-12 text-center md:hidden">
+                <a href="#contato" class="inline-flex items-center gap-2 text-blue-700 font-semibold hover:text-blue-900 transition-colors">
+                    Seja nosso cliente <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços (Alterado BG para Branco) -->
+    <section id="servicos" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 inline-block section-title">Nossos Serviços</h2>
+                <p class="text-slate-600 mt-4">Utilizamos equipamentos modernos para garantir a máxima precisão em cada peça produzida.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-slate-50 p-8 rounded-xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 border border-slate-100 group">
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors shadow-sm">
+                        <i data-lucide="settings-2" class="w-7 h-7 text-blue-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Torno CNC</h3>
+                    <p class="text-slate-600">Usinagem de peças complexas com alta precisão e repetibilidade garantida por controle numérico computadorizado.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-slate-50 p-8 rounded-xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 border border-slate-100 group">
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors shadow-sm">
+                        <i data-lucide="wrench" class="w-7 h-7 text-blue-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Manutenção Industrial</h3>
+                    <p class="text-slate-600">Recuperação de peças e componentes mecânicos para manter sua linha de produção sempre ativa.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-slate-50 p-8 rounded-xl shadow-sm hover:shadow-xl transition-all hover:-translate-y-1 border border-slate-100 group">
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors shadow-sm">
+                        <i data-lucide="layers" class="w-7 h-7 text-blue-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Peças Seriadas</h3>
+                    <p class="text-slate-600">Produção de lotes de peças conforme desenho ou amostra, atendendo rigorosos padrões de qualidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato (Mantido BG Cinza Claro) -->
+    <section id="contato" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Informações -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 text-slate-900 section-title">Entre em Contato</h2>
+                    <p class="text-slate-600 mb-10 text-lg">
+                        Pronto para iniciar seu projeto ou precisa de uma cotação? Nossa equipe está à disposição para atender sua demanda com agilidade.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-blue-100 p-3 rounded-full text-blue-700">
+                                <i data-lucide="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900">Telefone</h3>
+                                <p class="text-slate-600">+55 (79) 3205-2272</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="bg-blue-100 p-3 rounded-full text-blue-700">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900">Email</h3>
+                                <p class="text-slate-600">comercial@nardelliusinagem.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="bg-blue-100 p-3 rounded-full text-blue-700">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900">Endereço</h3>
+                                <p class="text-slate-600">Rua 21 de abril, 230, Dezoito do Forte<br>Aracaju - Sergipe, 49072-760</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                    <form onsubmit="event.preventDefault(); alert('Esta é uma demonstração de layout.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Nome</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="Seu nome">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Telefone</label>
+                                <input type="tel" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="(00) 00000-0000">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="seu@email.com">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Mensagem</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" placeholder="Como podemos ajudar?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 rounded-lg transition-all shadow-lg shadow-blue-900/20">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-6 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold text-white mb-2">NARDELLI USINAGEM</h2>
+                    <p class="text-sm">Produzindo com qualidade e precisão desde 1991.</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-800 text-sm text-center">
+                <p>&copy; 2024 Nardelli Usinagem. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/557932052272" class="whatsapp-float whatsapp-pulse" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Inicializa os ícones do Lucide
+        lucide.createIcons();
+
+        // Efeito simples de navbar ao rolar
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.replace('py-4', 'py-2');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.replace('py-2', 'py-4');
+            }
+        });
+    </script>
+</body>
+</html>
